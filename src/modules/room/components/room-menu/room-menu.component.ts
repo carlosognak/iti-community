@@ -1,3 +1,4 @@
+import { state } from '@angular/animations';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -17,16 +18,27 @@ export class RoomMenuComponent implements OnInit {
 
   rooms: Room[];
 
-  constructor(private feedStore: FeedStore, private queries: RoomQueries, private roomSocketService: RoomSocketService) {
+  rooms$: Observable<Room[]>
+
+  constructor(private feedStore: FeedStore, private queries: RoomQueries, private roomStore: RoomStore, private roomSocketService: RoomSocketService, private router: Router) {
     this.roomId$ = feedStore.roomId$;
     this.rooms = [];
+    this.rooms$ = roomStore.get(state => state.rooms);
   }
 
   async ngOnInit() {
     this.rooms = await this.queries.getAll();
+
+    if (this.feedStore.value.roomId) {
+      this.router.navigate(['/app/' + this.feedStore.value.roomId]);
+    } else {
+      this.router.navigate(['/app/' + this.rooms[0].id]);
+    }
   }
 
   goToRoom(room: Room) {
     // TODO naviguer vers app/[id de la room]
+    console.log("Vers Room : " + room.name)
+    this.router.navigate([`/app/${room.id}`]);
   }
 }

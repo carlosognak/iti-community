@@ -59,13 +59,13 @@ Au clic sur le bouton "S'enregistrer", le formulaire va déclancher l'évenement
 
 Le inputs son créés à partir du composant `nz-form-item` de la ui library [ng-zorro](https://ng.ant.design/components/input/en)
 
-#### Level I
+#### Level I ✔️
     
 1. Terminer le formulaire pour l'ajout d'un utilisateur
 2. Rendre le username et le mot de passe obligatoires
 3. En cas de succès, rediriger l'utilisateur sur /splash/login
 
-#### Level II
+#### Level II ✔️
 
 4. Afficher les messages d'erreurs de validations
     > Utiliser la propriété `nzErrorTip` sur le composant `nz-form-control`
@@ -81,13 +81,13 @@ Permet à un utilisateur de se connecter à la plateforme.
 Le formulaire doit contenir 2 champs : "username", "Mot de passe".
 Le clic sur le bouton "Connexion" permet de soumettre le formulaire en appelant la méthode `submit()` du composant.
 
-#### Level I
+#### Level I ✔️
 
 1. Faire le formulaire de sign in
 2. Rendre le username et le mot de passe obligatoires
 3. Rediriger l'utilisateur sur "/" en cas de succès
 
-#### Level II
+#### Level II ✔️
 
 4. Afficher les messages d'erreurs de validation pour chaque champs
 5. Afficher un message si le login a échoué
@@ -99,7 +99,7 @@ Une room est une salle de discussion dans laquelle les utilisateurs peuvent s'é
 Un utilisateur doit en amont avoir sélectionné une room pour pouvoir y poster du contenu.
 
 
-#### Level I
+#### Level I ✔️
 
 1. Afficher la liste des rooms dans le menu
     > `src/modules/room/room-menu`
@@ -108,7 +108,7 @@ Un utilisateur doit en amont avoir sélectionné une room pour pouvoir y poster 
 
 2. Pouvoir naviguer vers room au clic dans le menu
 
-#### Level II
+#### Level II ✔️
 
 3. Pouvoir ajouter une nouvelle room
     > Dans `src/modules/room/room-menu`
@@ -133,12 +133,12 @@ Un utilisateur doit en amont avoir sélectionné une room pour pouvoir y poster 
   
 5. Ajouter ajouter les nouvelles rooms créées dynamiquement
 
-#### Level III
+#### Level III ✔️
 6. Sélectionner par défaut la dernière room visité par l'utilisateur en stockant l'information dans le [localStorage](https://developer.mozilla.org/fr/docs/Web/API/Window/localStorage)
 
 ### Post
 
-### Level I
+### Level I ✔️
 1. Pouvoir rédiger et envoyer un post
     > `src/modules/input/components/feed-input`
 
@@ -157,14 +157,14 @@ Un utilisateur doit en amont avoir sélectionné une room pour pouvoir y poster 
 9. Insérer les nouveaux posts reçues via WebSocket
 10. Pouvoir uploader des photos, vidéos et audios
 
-### Level III
+### Level III ⏳
 10. Pouvoir parser plusieurs type de contenus dans un seul post
 11. Remplacer les liens http par des balises <a>...</a>.
 12. Dans les messages, afficher les mentions `@username` en vert
 
 ### User Widget 
 
-### Level I
+### Level I ⏳
 
 1. Afficher la photo de l'utilisateur connecté
 2. Pouvoir éditer le profile de l'utilisateur: son username et sa photo en cliquant sur le bouton dédié
@@ -172,16 +172,16 @@ Un utilisateur doit en amont avoir sélectionné une room pour pouvoir y poster 
 
 ### Notifications
 
-### Level I
+### Level I ⏳
 
 1. Au clic sur le bouton de notifications, afficher ou masquer une barre de notification
 2. Dans la barre de notifications, lister toutes les notifications reçues avec : un message décrivant la notification, la photo de l'utilisateur concerné et la date
 3. Afficher sur fond vert les notifications non lues
 
-### Level II
+### Level II ⏳
 4. Afficher les nouvelles notifications reçues dans la [popup de notification](https://ng.ant.design/components/notification/en)
 
-### Level III
+### Level III ⏳
 5.  Créer un service permettant de poster des [notifications web](https://developer.mozilla.org/fr/docs/Web/API/notification/Using_Web_Notifications)
 
 6. N'afficher les notifications Web que si la page n'est pas visible grâce à l'évènement [visibilitychange](https://developer.mozilla.org/en-US/docs/Web/Events/visibilitychange)
