@@ -1,10 +1,10 @@
 # ItiCommunity
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
 
 ## Development server
 
-Run `npm start` or `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -33,9 +33,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## Outils
-- installer le plugin chrome [Angular DevTools](https://chrome.google.com/webstore/detail/angular-devtools/ienfalfjdbdpebioblfackkekamfmbnh)
-
-- installer le plugin [Angular Language Service](https://marketplace.visualstudio.com/items?itemName=Angular.ng-template)
+- installer le plugin chrome [augury](https://chrome.google.com/webstore/detail/augury/elgalmkoelokbchhkhacckoklkejnhcd)
+- installer le plugin VS CODE [angular2-snipet](https://marketplace.visualstudio.com/items?itemName=johnpapa.Angular2)
 
 ## Documentation
 - [Angular](https://angular.io/docs)
