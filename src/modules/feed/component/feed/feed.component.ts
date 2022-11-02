@@ -4,6 +4,7 @@ import { FeedStore } from '../../feed.store';
 import { Post } from '../../post.model';
 import { PostService } from '../../services/post.service';
 import { FeedSocketService } from '../../services/feed.socket.service';
+import { AuthenticationStore } from 'src/modules/authentication/authentication.store';
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -16,7 +17,9 @@ export class FeedComponent implements OnInit {
 
   posts$: Observable<Post[]>;
 
-  constructor(private postService: PostService, private store: FeedStore, private socketService: FeedSocketService) {
+
+
+  constructor(private postService: PostService, private store: FeedStore, private socketService: FeedSocketService, private auth :AuthenticationStore) {
     this.posts$ = this.store.get(s => s.posts);
     this.roomId$ = this.store.roomId$;
   }
@@ -25,7 +28,8 @@ export class FeedComponent implements OnInit {
     this.store.onRoomIdChange(async roomId => {
       if (roomId) {
         this.socketService.onNewPost(roomId, post => {
-          this.store.appendPost(post);
+          if(this.auth.userId != post.createdBy.id)
+              this.store.appendPost(post);
         })
         await this.postService.fetch(roomId, {
           page: 0,

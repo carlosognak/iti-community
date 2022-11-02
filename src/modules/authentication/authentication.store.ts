@@ -29,4 +29,7 @@ export class AuthenticationStore extends Store<AuthenticationState | null> {
   get isAuthenticated(): boolean {
     return !!this.value;
   }
+ get userId (){
+    return this.value?.userId;
+ }
 }

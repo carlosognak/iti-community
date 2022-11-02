@@ -29,7 +29,11 @@ export class PostComponent implements OnInit, AfterViewInit {
     this.anchor.nativeElement.scrollIntoView();
   }
 
-  async like() {
-    this.postService.like(this.post);
+   like() {
+    if(!this.post.liked){
+      this.postService.like(this.post);
+      this.post.liked = true;
+      return true
+    }
   }
 }
