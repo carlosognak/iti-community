@@ -19,7 +19,6 @@ export class PostAttachementImageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('image got with url :' + this.element.url)
   }
 
 }
