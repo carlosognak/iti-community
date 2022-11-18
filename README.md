@@ -157,14 +157,14 @@ Un utilisateur doit en amont avoir sélectionné une room pour pouvoir y poster 
 9. Insérer les nouveaux posts reçues via WebSocket
 10. Pouvoir uploader des photos, vidéos et audios
 
-### Level III ⏳
+### Level III ✔️
 10. Pouvoir parser plusieurs type de contenus dans un seul post
 11. Remplacer les liens http par des balises <a>...</a>.
 12. Dans les messages, afficher les mentions `@username` en vert
 
 ### User Widget 
 
-### Level I ⏳
+### Level I ✔️
 
 1. Afficher la photo de l'utilisateur connecté
 2. Pouvoir éditer le profile de l'utilisateur: son username et sa photo en cliquant sur le bouton dédié
