@@ -26,25 +26,29 @@ export class PostMapper {
     const pictureMatche = pictureRegex.exec(message);
     if (pictureMatche) {
       // TODO ajouter un attachement de type image dans attachements
-      console.log('Got image = ', pictureMatche[0])
+      message = pictureMatche[1]
+
       attachements.push({ type: 'image', url: pictureMatche[0] } as MessageImageElement)
     }
 
     const videoMatche = videoRegex.exec(message)
     if (videoMatche) {
       // TODO ajouter un attachement de type video dans attachements
+      message = videoMatche[1]
       attachements.push({ type: 'video', url: videoMatche[0] } as MessageVideoElement)
     }
 
     const audioMatche = audioRegex.exec(message)
     if (audioMatche) {
       // TODO ajouter un attachement de type audio dans attachements
+      message = audioMatche[1]
       attachements.push({ type: 'audio', url: audioMatche[0] } as MessageAudioElement)
     }
 
     const youtubeMatche = youtubeRegex.exec(message)
     if (youtubeMatche) {
       // TODO ajouter un attachement de type youtube dans attachements
+      message = youtubeMatche['input'].split(youtubeMatche[0]).join(" ");
       const videoId = youtubeMatche[1]
       attachements.push({ type: 'youtube', videoId })
     }
