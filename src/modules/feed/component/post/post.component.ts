@@ -22,15 +22,15 @@ export class PostComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.post.createdAt = new Date(this.post.createdAt).toString()
-    //console.log('post = ', this.post)
+    console.log('POst = ', this.post.message.text.content)
   }
 
   ngAfterViewInit() {
     this.anchor.nativeElement.scrollIntoView();
   }
 
-   like() {
-    if(!this.post.liked){
+  like() {
+    if (!this.post.liked) {
       this.postService.like(this.post);
       this.post.liked = true;
       return true

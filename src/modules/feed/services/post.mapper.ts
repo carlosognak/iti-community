@@ -11,17 +11,19 @@ export class PostMapper {
 
   private parseMessage(message: string): PostMessage {
     // TODO rajouter png jpg et gif
-    const pictureRegex = /http[s]?:\/\/.+\.(jpeg|jpg|gif)/gmi;
+    const pictureRegex = /http[s]?:\/\/.+\.(jpeg|jpg|png|gif)/gmi;
 
     // TODO mp4,wmv,flv,avi,wav
     const videoRegex = /http[s]?:\/\/.+\.(mp4|wmv|flv|avi|wav)/gmi;
 
     // TODO mp3,ogg,wav
     const audioRegex = /http[s]?:\/\/.+\.(mp3|ogg|wav)/gmi;
-
+    const tagRegex = /@{1}[a-zA-Z0-9]{1,256}/gmi;
     const youtubeRegex = /http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&(amp;)?‌​[\w\?‌​=]*)?/gmi;
     //const youtubeRegex = /(http[s]?:\/\/)?www\.(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\/?\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/gmi;
     const attachements: MessageElement[] = [];
+
+    const linkRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gmi;
 
     const pictureMatche = pictureRegex.exec(message);
     if (pictureMatche) {
@@ -53,6 +55,15 @@ export class PostMapper {
       attachements.push({ type: 'youtube', videoId })
     }
 
+    const linkMatche = linkRegex.exec(message);
+    if (linkMatche) {
+      message = linkMatche.input.split(linkMatche[0]).join("<a href=" + linkMatche[0] + "> " + linkMatche[0] + "</a> ");
+    }
+
+    const tagMatche = tagRegex.exec(message);
+    if (tagMatche) {
+      message = tagMatche.input.split(tagMatche[0]).join("<p  class='post-userTag'> " + tagMatche[0] + "</p> ");
+    }
     return {
       text: {
         type: 'text',

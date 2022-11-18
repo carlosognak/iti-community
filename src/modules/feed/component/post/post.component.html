@@ -10,7 +10,7 @@
     <i nz-icon nzType="heart" [nzTheme]="post.liked ? 'fill' : 'outline'"></i>
   </div>
 
-  <p class="post-text">
+  <p class="post-text" [innerHTML]="post.message.text.content">
     {{post.message.text.content}}
   </p>
 
