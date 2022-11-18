@@ -45,7 +45,7 @@ export class PostMapper {
     if (youtubeMatche) {
       // TODO ajouter un attachement de type youtube dans attachements
       const videoId = youtubeMatche[1]
-      attachements.push({ type: 'youtube', videoId})
+      attachements.push({ type: 'youtube', videoId })
     }
 
     return {
